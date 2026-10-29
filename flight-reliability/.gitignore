@@ -1,0 +1,28 @@
+# Raw and generated data (never commit the Kaggle files)
+data/raw/
+data/interim/
+data/processed/
+data/processed_sample/
+*.csv
+*.parquet
+*.duckdb
+*.zip
+
+# Environments and secrets
+.venv/
+.env
+*.env
+kaggle.json
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

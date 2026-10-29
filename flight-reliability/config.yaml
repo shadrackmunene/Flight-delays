@@ -1,0 +1,27 @@
+# Project configuration. Paths are relative to the repository root unless absolute.
+# The raw CSV location can be overridden with --raw-dir or the FLIGHTREL_RAW_DIR env var.
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  interim_dir: data/interim
+
+years: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
+
+duckdb:
+  memory_limit: 8GB
+  threads: 8
+
+# Thresholds used to FLAG (never delete) suspicious records.
+quality:
+  delay_extreme_max_min: 1440     # delays above 24h are flagged for review
+  early_extreme_min_min: -120     # more than 2h early is flagged for review
+  taxi_max_min: 300               # taxi time above 5h (or negative) is flagged
+
+analysis:
+  late_threshold_min: 15          # primary definition of a "late" arrival (ARR_DELAY >= 15)
+
+# Chronological split used by the predictive models (Stage 5).
+split:
+  train_years: [2009, 2010, 2011, 2012, 2013, 2014, 2015]
+  validation_years: [2016]
+  test_years: [2017, 2018]
